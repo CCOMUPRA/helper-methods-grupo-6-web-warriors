@@ -1,0 +1,29 @@
+We have decided to share this line of code that represents login verification.
+Every time the user will attempt to enter a page without being logged in, this
+will redirect them to the login every time. The reason why we decided to share this,
+is because from the code we did the peer review on didn't have any way to verify that
+user is logged in. Utilizing this, it is asumed you are also using sessionStorage
+to be able to save that you are logged in.
+
+This is the code that verifies that you are logged in. If you are not, it
+will send you to login page:
+
+if (!isLoggedIn) {
+    window.location.href = "login.html"; 
+}
+
+
+It's expected for you to already implement:
+
+Activate isLoggedIn variable:
+
+var isLoggedIn = sessionStorage.getItem('isLoggedIn');
+
+When you log in successfully, this should be used to save that you are signed in:
+
+localStorage.setItem("isLoggedIn", "true");
+
+
+Once you log out, this should be added to remove isLoggedIn:
+
+localStorage.removeItem("isLoggedIn");
